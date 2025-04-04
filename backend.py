@@ -5,12 +5,13 @@ import os
 
 # Force vLLM to run on CPU
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+os.environ["VLLM_USE_CPU"] = "1"
 
 # Initialize FastAPI app
 app = FastAPI()
 
-# Load Gemma-3B in CPU mode
-llm = LLM(model="google/gemma-3b-it", tensor_parallel_size=1)
+# Load Gemma-3B explicitly in CPU mode
+llm = LLM(model="google/gemma-3b-it", tensor_parallel_size=1, enforce_eager=True)
 
 # Define request format
 class PromptRequest(BaseModel):
