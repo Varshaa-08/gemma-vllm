@@ -1,7 +1,7 @@
 fastapi
 gunicorn
 uvicorn
-vllm
 pydantic
-torch
-transformers
+requests
+streamlit
+vllm==0.2.4  # Ensure the latest stable version
