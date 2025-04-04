@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: gemma-vllm-api
+    env: python
+    plan: starter-plus # Choose GPU-supported plan if needed
+    buildCommand: pip install -r requirements.txt
+    startCommand: ./start.sh
+    region: oregon
+    envVars:
+      - key: HF_HOME
+        value: "/app/huggingface"
