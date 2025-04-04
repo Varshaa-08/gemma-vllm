@@ -9,8 +9,8 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 # Initialize FastAPI app
 app = FastAPI()
 
-# Load Gemma-3 1B-IT model with vLLM
-llm = LLM(model="google/gemma-3b-it")
+# Load Gemma-3B in CPU mode
+llm = LLM(model="google/gemma-3b-it", tensor_parallel_size=1)
 
 # Define request format
 class PromptRequest(BaseModel):
