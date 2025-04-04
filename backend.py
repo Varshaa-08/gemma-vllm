@@ -1,6 +1,10 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from vllm import LLM, SamplingParams
+import os
+
+# Force vLLM to run on CPU
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 # Initialize FastAPI app
 app = FastAPI()
